@@ -2,13 +2,21 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Starting
 
 In the root directory, run:
 
+### `node api/index.js`
+
+In a different terminal, run:
+
+### `curl 'http://localhost/3001/weather'`
+
+In a different terminal, run:
+
 ### `npm install`
 
-In the **\weather-app\client** directory, you can run:
+In the **\weather-app\client** directory, run:
 
 ### `npm start`
 
@@ -18,6 +26,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+
+----
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
@@ -72,3 +82,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+

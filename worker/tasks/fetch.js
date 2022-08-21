@@ -38,7 +38,7 @@ async function fetchData() {
    await client.connect();
 
    // set in redis
-   await client.set('weather', JSON.stringify(jsonRes));
+   await client.set('weather', JSON.stringify(flattenedWeatherData));
    const success = await client.get('weather');
 
    console.log({success});
