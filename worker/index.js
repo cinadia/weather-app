@@ -9,5 +9,3 @@ new CronJob(
     true,
     'America/Los_Angeles'
 );
-
-// changed here

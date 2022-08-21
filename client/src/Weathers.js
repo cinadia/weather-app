@@ -16,5 +16,3 @@ export default function Weathers({weathers}) { // create a function that we can 
         </div>
     )
 }
-
-// changed here

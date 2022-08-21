@@ -1,6 +1,7 @@
 let fetch = require('node-fetch');
 let redis = require('redis');
 
+// create redis client
 const client = redis.createClient();
 client.on('error', (err) => console.log('Redis Client Error', err));
 
@@ -65,5 +66,3 @@ const flattenJSON = (obj = {}, res = {}, extraKey = '') => {
 fetchData();
 
 module.exports = fetchData;
-
-// changed here
