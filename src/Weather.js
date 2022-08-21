@@ -10,3 +10,5 @@ export default function Weather({weather}) { // create a function that we can im
         </div>
     )
 }
+
+// changed here
