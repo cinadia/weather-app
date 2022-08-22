@@ -21,8 +21,10 @@ async function fetchData() {
    const res = await fetch(baseURL);
    const jsonRes = await res.json();
 
+   console.log(jsonRes);
+
    // transform data
-   const city = jsonRes.city; // data on the selected city (currently Vancouver)
+   // const city = jsonRes.city; // data on the selected city (currently Vancouver)
    const allWeatherData = jsonRes.list; // five day forecast data
 
    const flattenedWeatherData = {};
@@ -39,9 +41,18 @@ async function fetchData() {
 
    // set in redis
    await client.set('weather', JSON.stringify(flattenedWeatherData));
-   const success = await client.get('weather');
+   const weatherSuccess = await client.get('weather');
 
-   console.log({success});
+   /*
+   await client.set('city', JSON.stringify(city));
+   const citySuccess = await client.get('city');
+
+    */
+
+
+   console.log({weatherSuccess});
+   // console.log({citySuccess});
+
 
    // close the connection
    const [ping, get, quit] = await Promise.all([
@@ -62,6 +73,14 @@ const flattenJSON = (obj = {}, res = {}, extraKey = '') => {
    };
    return res;
 };
+
+// function copyObjectProps(source, keys) {
+//    let newObject = {}
+//    keys.forEach(function(key) {
+//       newObject[key] = source[key]
+//    })
+//    return newObject
+// }
 
 fetchData();
 

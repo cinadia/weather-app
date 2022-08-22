@@ -2,19 +2,12 @@ import React from 'react'
 import './App.css';
 
 import Weathers from './Weathers';
+import City from './City';
 
 const WEATHER_API_URL = 'http://localhost:3001/weather'
-
-// // mock JSON returned from API
-// const mockWeather = [
-//     {location: 'Vancouver, Canada', high: '30'},
-//     {location: 'Surrey, Canada', high: '34'},
-//     {location: 'London, England', high: '21'},
-//     {location: 'Paris, France', high: '29'}
-// ]
+//const CITY_API_URL = 'http://localhost:3001/city'
 
 async function fetchWeather(updateCb) {
-    // TODO: data being fetched is not going through fetch.js, it is not filtered
     const res = await fetch(WEATHER_API_URL);
     const json = await res.json();
 
@@ -23,12 +16,26 @@ async function fetchWeather(updateCb) {
     console.log({json});
 }
 
+/*
+async function fetchCity(updateCb) {
+    const res = await fetch(CITY_API_URL);
+    const json = await res.json();
+
+    updateCb(json); // sets cityList to json to update it
+
+    console.log({json});
+}
+
+ */
+
+
 function App() {
 
     // second variable is a function through which we can pass an argument that is the new value of our state
     const [weatherList, updateWeather] = React.useState([]) // initialized to empty list
+    //const [cityList, updateCity] = React.useState([])
 
-    // a hook
+    // a hook for fetching weather
     React.useEffect(() => {
         fetchWeather(updateWeather); //updateWeather is a call-back to update the weather data
         // updateWeather is created as a constant above
@@ -36,8 +43,20 @@ function App() {
 
     }, [])
     console.log(weatherList);
-  return (
+
+    /*
+    // a hook for fetching city data
+    React.useEffect(() => {
+        fetchCity(updateCity);
+
+    }, [])
+    console.log(cityList);
+
+     */
+
+    return (
     <div className="App">
+        {/*<City city={cityList}/>*/}
         <Weathers weathers={weatherList}/>
     </div>
   );

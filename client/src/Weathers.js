@@ -3,32 +3,30 @@ import Weather from "./Weather";
 
 // a React component
 export default function Weathers({weathers}) { // create a function that we can import in another file
-    console.log('UNMODIFIED WEATHERS HERE--------------------')
-    console.log(weathers);
-
+    // console.log('UNMODIFIED WEATHERS HERE--------------------')
+    // console.log(weathers);
+    //
     console.log('OBJECT ENTRIES---------------')
     console.log(Object.entries(weathers));
 
-
-    console.log('ARRAY.FROM HERE--------------------')
-    // for some reason, this is empty
-    console.log(Array.from(Object.entries(weathers)));
-
     return ( // returns a React element describing what appears on the screen
         <div className={'weathers'}>
-            Five Day Forecast
+            Five Day Forecast for Vancouver, Canada
+
+            {
+
+            }
 
             {
                 Object.entries(weathers).map(weather => <Weather weather={weather} />)
             }
-
 
         </div>
     )
 }
 
 /*
-Example response from Objects.entries(weathers)
+Example weather data response from Objects.entries(weathers)
 [
     [
         "2022-08-22 00:00:00",
@@ -55,6 +53,26 @@ Example response from Objects.entries(weathers)
             "pop": 0,
             "sys.pod": "d",
             "dt_txt": "2022-08-22 00:00:00"
+        }
+    ]
+]
+
+Example city data response from Objects.entries(weathers)
+
+    [
+        "[object Object]",
+        {
+            "id": 6173331,
+            "name": "Vancouver",
+            "coord": {
+                "lat": 49.2827,
+                "lon": -123.1207
+            },
+            "country": "CA",
+            "population": 1837969,
+            "timezone": -25200,
+            "sunrise": 1661087586,
+            "sunset": 1661138307
         }
     ]
 ]

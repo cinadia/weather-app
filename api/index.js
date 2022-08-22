@@ -16,8 +16,7 @@ app.get('/weather', async (req, res) => {
     // get from redis
     const weather = await client.get('weather');
 
-    console.log(JSON.parse(weather)); // TODO: remove JSON.parse later??
-    //console.log(weather);
+    console.log(weather);
 
     // close the connection
     const [ping, get, quit] = await Promise.all([
@@ -30,6 +29,32 @@ app.get('/weather', async (req, res) => {
    return res.send(JSON.parse(weather));
 
 })
+
+/*
+app.get('/city', async (req, res) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    // open the connection
+    await client.connect();
+
+    // get from redis
+    const city = await client.get('city');
+
+    console.log(city);
+
+    // close the connection
+    const [ping, get, quit] = await Promise.all([
+        client.ping(),
+        client.get('city'),
+        client.quit()
+    ]); // ['PONG', null, 'OK']
+
+
+    return res.send(JSON.parse(city));
+
+})
+
+ */
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
