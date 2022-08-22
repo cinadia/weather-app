@@ -8,15 +8,11 @@ In the root directory, run:
 
 ### `node api/index.js`
 
-In a different terminal, run:
-
-### `curl 'http://localhost/3001/weather'`
-
-In a different terminal, run:
+In the **\weather-app\client** directory, run:
 
 ### `npm install`
 
-In the **\weather-app\client** directory, run:
+followed by
 
 ### `npm start`
 
