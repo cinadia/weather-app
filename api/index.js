@@ -7,9 +7,10 @@ client.on('error', (err) => console.log('Redis Client Error', err));
 const express = require('express')
 const app = express()
 const port = 3001 // because frontend is on 3000
+const ACAO_VALUE = 'https://simple-weather-app-3d551.web.app'
 
 app.get('/weather', async (req, res) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Origin', "*");
     // open the connection
     await client.connect();
 

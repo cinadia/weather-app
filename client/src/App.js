@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 
 import Weathers from './Weathers';
-import City from './City';
+//import City from './City';
 
 const WEATHER_API_URL = 'http://localhost:3001/weather'
 //const CITY_API_URL = 'http://localhost:3001/city'

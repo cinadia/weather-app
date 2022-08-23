@@ -5,15 +5,6 @@ let redis = require('redis');
 const client = redis.createClient();
 client.on('error', (err) => console.log('Redis Client Error', err));
 
-
-// promisify the response
-const {promisify} = require('util');
-
-//const getAsync = promisify(client.get).bind(client);
-
-//const setAsync = promisify.promisify(client.get).bind(client);
-const setAsync = promisify(client.get).bind(client);
-
 const baseURL = "https://api.openweathermap.org/data/2.5/forecast?lat=49.282730&lon=-123.120735&appid=b960595956aa7918b0312905d0a88ce4&units=metric";
 
 async function fetchData() {
@@ -35,7 +26,6 @@ async function fetchData() {
 
    console.log(flattenedWeatherData);
 
-
    // open the connection
    await client.connect();
 
@@ -49,10 +39,8 @@ async function fetchData() {
 
     */
 
-
    console.log({weatherSuccess});
    // console.log({citySuccess});
-
 
    // close the connection
    const [ping, get, quit] = await Promise.all([
@@ -60,7 +48,6 @@ async function fetchData() {
       client.get('key'),
       client.quit()
    ]); // ['PONG', null, 'OK']
-
 }
 
 const flattenJSON = (obj = {}, res = {}, extraKey = '') => {
@@ -73,14 +60,6 @@ const flattenJSON = (obj = {}, res = {}, extraKey = '') => {
    };
    return res;
 };
-
-// function copyObjectProps(source, keys) {
-//    let newObject = {}
-//    keys.forEach(function(key) {
-//       newObject[key] = source[key]
-//    })
-//    return newObject
-// }
 
 fetchData();
 
