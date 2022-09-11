@@ -11,7 +11,7 @@ async function fetchWeather(updateCb) {
     const res = await fetch(WEATHER_API_URL);
     const json = await res.json();
 
-    updateCb(json); // sets weatherList to json to update it
+    updateCb(json); // set weatherList to json to update it
 
     console.log({json});
 }
